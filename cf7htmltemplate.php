@@ -12,7 +12,7 @@
 	 * @package           cf7htmltemplate
 	 *
 	 * @wordpress-plugin
-	 * Plugin Name:       cf7htmltemplate
+	 * Plugin Name:       Html Template for Contact Form 7
 	 * Plugin URI:        https://codeboxr.com/product/contact-form-7-html-templates/
 	 * Description:       Html template(s) for contact form 7
 	 * Version:           1.0.0
