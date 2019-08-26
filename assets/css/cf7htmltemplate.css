@@ -1,0 +1,9 @@
+#cf7htmltemplate_footer_text_wrapper{
+	position: relative;
+}
+
+#cf7htmltemplate_footer_text_wrapper label{
+	position: absolute;
+	top: 8px;
+	left: 0px;
+}

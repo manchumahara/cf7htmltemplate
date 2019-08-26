@@ -1,0 +1,132 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Html Template for Contact Form 7\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-26 12:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.3.0; wp-5.2.2"
+
+#: cf7htmltemplate.php:52
+msgid ""
+"This plugin requires <a target=\"_blank\" href=\"https://wordpress."
+"org/plugins/contact-form-7/\">Contact Form 7</a> plugin to be active!"
+msgstr ""
+
+#: cf7htmltemplate.php:102
+msgid "Documentation & Support"
+msgstr ""
+
+#: cf7htmltemplate.php:131
+msgid "cancel"
+msgstr ""
+
+#: cf7htmltemplate.php:132
+msgid "choose"
+msgstr ""
+
+#: cf7htmltemplate.php:133
+msgid "Clear Color Selection"
+msgstr ""
+
+#: cf7htmltemplate.php:134
+msgid "No Color Selected"
+msgstr ""
+
+#: cf7htmltemplate.php:135
+msgid "more"
+msgstr ""
+
+#: cf7htmltemplate.php:136
+msgid "less"
+msgstr ""
+
+#: cf7htmltemplate.php:139
+msgid "Please Select"
+msgstr ""
+
+#: cf7htmltemplate.php:140
+msgid "Choose Photo/Image"
+msgstr ""
+
+#: cf7htmltemplate.php:172
+msgid "Html Template"
+msgstr ""
+
+#: cf7htmltemplate.php:190 cf7htmltemplate.php:264
+msgid "Contact Form Notification"
+msgstr ""
+
+#: cf7htmltemplate.php:200
+msgid "Html Template Setting"
+msgstr ""
+
+#: cf7htmltemplate.php:202
+msgid ""
+"Enable Html Template(Also depends on <strong>Use HTML content type</strong> "
+"on Email Tab)"
+msgstr ""
+
+#: cf7htmltemplate.php:206
+msgid "Use a Heading in Email"
+msgstr ""
+
+#: cf7htmltemplate.php:210
+msgid "Header Text(Support any form field syntax)"
+msgstr ""
+
+#: cf7htmltemplate.php:214
+msgid "Site Logo"
+msgstr ""
+
+#: cf7htmltemplate.php:215
+msgid "Choose File"
+msgstr ""
+
+#: cf7htmltemplate.php:218
+msgid "Footer Text(Support any form field syntax)"
+msgstr ""
+
+#: cf7htmltemplate.php:240
+msgid "Base Color(The base color of the email)"
+msgstr ""
+
+#: cf7htmltemplate.php:243
+msgid "Background Colour(The background color of the email)"
+msgstr ""
+
+#: cf7htmltemplate.php:246
+msgid "Body Background Color(The background colour of the main body of email)"
+msgstr ""
+
+#: cf7htmltemplate.php:249
+msgid "Body Text Color(The body text colour of the main body of email)"
+msgstr ""
+
+#. Name of the plugin
+msgid "cf7htmltemplate"
+msgstr ""
+
+#. Description of the plugin
+msgid "Html template(s) for contact form 7"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://codeboxr.com/product/contact-form-7-html-templates/"
+msgstr ""
+
+#. Author of the plugin
+msgid "Codeboxr Team"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://codeboxr.com"
+msgstr ""
