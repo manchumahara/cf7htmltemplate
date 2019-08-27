@@ -27,7 +27,7 @@
                                                 <table border="0" cellpadding="0" cellspacing="0" width="600" id="template_header">
                                                     <tr>
                                                         <td id="header_wrapper">
-                                                            <h1 style="color: white;">' . $header_text . '</h1>
+                                                            <h1 style="color: white;">' . esc_attr($header_text) . '</h1>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -37,17 +37,17 @@
 
 			$html = '
                     <!DOCTYPE html>
-                    <html dir="' . $direction . '">
+                    <html dir="' . esc_attr($direction) . '">
                         <head>
                             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-                            <title>' . $sitename . '</title>
+                            <title>' . esc_attr($sitename) . '</title>
                     </head>
                     <body ' . ( ( $direction == 'ltr' ) ? ' leftmargin="0" ' : ' rightmargin="0"  ' ) . '  marginwidth="0" topmargin="0" marginheight="0" offset="0">
-                    <div id="wrapper" dir="' . $direction . '">
+                    <div id="wrapper" dir="' . esc_attr($direction) . '">
                         <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
                             <tr>
                                 <td align="center" valign="top">
-                                    <div id="template_header_image">' . ( ( $headerimage != '' ) ? '<p style="margin-top:0;"><img src="' . $headerimage . '" alt="' . $sitename . '" /></p>' : '' ) . '
+                                    <div id="template_header_image">' . ( ( $headerimage != '' ) ? '<p style="margin-top:0;"><img src="' . esc_url($headerimage) . '" alt="' . esc_attr($sitename) . '" /></p>' : '' ) . '
                                     </div>
                                     <table border="0" cellpadding="0" cellspacing="0" width="600" id="template_container">
                                         ' . $header_html . '

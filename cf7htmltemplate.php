@@ -149,7 +149,7 @@
 		}//end method enqueue_scripts_styles
 
 		/**
-		 * Add extra default setting for trello posting
+		 * Add extra default setting for new tab properties
 		 *
 		 * @param $properties
 		 * @param $ref
@@ -199,23 +199,23 @@
 			?>
 			<h2><?php echo esc_html__( 'Html Template Setting', 'cf7htmltemplate' ); ?></h2>
 			<p>
-				<label for="cf7htmltemplate_enable"><input type="checkbox" id="cf7htmltemplate_enable" name="cf7htmltemplate[enable]" value="1"<?php echo $enable ? ' checked="checked"' : ''; ?> /> <?php echo __( 'Enable Html Template(Also depends on <strong>Use HTML content type</strong> on Email Tab)', 'cf7htmltemplate' ); ?>
+				<label for="cf7htmltemplate_enable"><input type="checkbox" id="cf7htmltemplate_enable" name="cf7htmltemplate[enable]" value="1"<?php echo intval($enable) ? ' checked="checked"' : ''; ?> /> <?php echo __( 'Enable Html Template(Also depends on <strong>Use HTML content type</strong> on Email Tab)', 'cf7htmltemplate' ); ?>
 				</label>
 			</p>
 			<p>
-				<label for="cf7htmltemplate_use_header"><input type="checkbox" id="cf7htmltemplate_use_header" name="cf7htmltemplate[use_header]" value="1" <?php echo $use_header ? ' checked="checked"' : ''; ?> /> <?php echo esc_html__( 'Use a Heading in Email', 'cf7htmltemplate' ); ?>
+				<label for="cf7htmltemplate_use_header"><input type="checkbox" id="cf7htmltemplate_use_header" name="cf7htmltemplate[use_header]" value="1" <?php echo intval($use_header) ? ' checked="checked"' : ''; ?> /> <?php echo esc_html__( 'Use a Heading in Email', 'cf7htmltemplate' ); ?>
 				</label>
 			</p>
 			<p>
-				<label for="cf7htmltemplate_header_text"><?php echo esc_html__( 'Header Text(Support any form field syntax)', 'cf7htmltemplate' ); ?></label><br/>
+				<label for="cf7htmltemplate_header_text"><?php esc_html_e( 'Header Text(Support any form field syntax)', 'cf7htmltemplate' ); ?></label><br/>
 				<input type="text" id="cf7htmltemplate_header_text" name="cf7htmltemplate[header_text]" size="70" class="large-text code" value="<?php echo esc_attr( $header_text ); ?>" />
 			</p>
 			<p>
-				<label for="cf7htmltemplate_header_image"><?php echo esc_html__( 'Site Logo', 'cf7htmltemplate' ); ?>
-					<input type="text" class="regular-text cf7htmltemplate-photo-url" id="cf7htmltemplate_header_image" name="cf7htmltemplate[header_image]" value="<?php echo $header_image; ?>" /> <input type="button" class="button cf7htmltemplate-photo" value="<?php esc_html_e( 'Choose File', 'cf7htmltemplate' ); ?>" /> </label>
+				<label for="cf7htmltemplate_header_image"><?php esc_html_e( 'Site Logo', 'cf7htmltemplate' ); ?>
+					<input type="text" class="regular-text cf7htmltemplate-photo-url" id="cf7htmltemplate_header_image" name="cf7htmltemplate[header_image]" value="<?php echo esc_url($header_image); ?>" /> <input type="button" class="button cf7htmltemplate-photo" value="<?php esc_html_e( 'Choose File', 'cf7htmltemplate' ); ?>" /> </label>
 			</p>
 			<div id="cf7htmltemplate_footer_text_wrapper">
-				<label for="cf7htmltemplate_footer_text"><?php echo esc_html__( 'Footer Text(Support any form field syntax)', 'cf7htmltemplate' ); ?></label>
+				<label for="cf7htmltemplate_footer_text"><?php esc_html_e( 'Footer Text(Support any form field syntax)', 'cf7htmltemplate' ); ?></label>
 				<?php wp_editor( stripcslashes( $footer_text ), 'cf7htmltemplate_footer_text', $settings = array(
 					'teeny'         => true,
 					'media_buttons' => false,
@@ -237,16 +237,16 @@
 				?>
 			</div>
 			<p>
-				<input type="text" id="cf7htmltemplate_base_color" name="cf7htmltemplate[base_color]" size="70" class="large-text code spectrum_color" value="<?php echo esc_attr( $base_color ); ?>" /> <label for="cf7htmltemplate_base_color"><?php echo esc_html__( 'Base Color(The base color of the email)', 'cf7htmltemplate' ); ?></label>
+				<input type="text" id="cf7htmltemplate_base_color" name="cf7htmltemplate[base_color]" size="70" class="large-text code spectrum_color" value="<?php echo esc_attr( $base_color ); ?>" /> <label for="cf7htmltemplate_base_color"><?php esc_html_e( 'Base Color(The base color of the email)', 'cf7htmltemplate' ); ?></label>
 			</p>
 			<p>
-				<input type="text" id="cf7htmltemplate_bg_color" name="cf7htmltemplate[bg_color]" size="70" class="large-text code spectrum_color" value="<?php echo esc_attr( $bg_color ); ?>" /> <label for="cf7htmltemplate_bg_color"><?php echo esc_html__( 'Background Colour(The background color of the email)', 'cf7htmltemplate' ); ?></label>
+				<input type="text" id="cf7htmltemplate_bg_color" name="cf7htmltemplate[bg_color]" size="70" class="large-text code spectrum_color" value="<?php echo esc_attr( $bg_color ); ?>" /> <label for="cf7htmltemplate_bg_color"><?php esc_html_e( 'Background Colour(The background color of the email)', 'cf7htmltemplate' ); ?></label>
 			</p>
 			<p>
-				<input type="text" id="cf7htmltemplate_body_bg_color" name="cf7htmltemplate[body_bg_color]" size="70" class="large-text code spectrum_color" value="<?php echo esc_attr( $body_bg_color ); ?>" /> <label for="cf7htmltemplate_body_bg_color"><?php echo esc_html__( 'Body Background Color(The background colour of the main body of email)', 'cf7htmltemplate' ); ?></label>
+				<input type="text" id="cf7htmltemplate_body_bg_color" name="cf7htmltemplate[body_bg_color]" size="70" class="large-text code spectrum_color" value="<?php echo esc_attr( $body_bg_color ); ?>" /> <label for="cf7htmltemplate_body_bg_color"><?php esc_html_e( 'Body Background Color(The background colour of the main body of email)', 'cf7htmltemplate' ); ?></label>
 			</p>
 			<p>
-				<input type="text" id="cf7htmltemplate_body_text_color" name="cf7htmltemplate[body_text_color]" size="70" class="large-text code spectrum_color" value="<?php echo esc_attr( $text_color ); ?>" /> <label for="cf7htmltemplate-_ody_text_color"><?php echo esc_html__( 'Body Text Color(The body text colour of the main body of email)', 'cf7htmltemplate' ); ?></label>
+				<input type="text" id="cf7htmltemplate_body_text_color" name="cf7htmltemplate[body_text_color]" size="70" class="large-text code spectrum_color" value="<?php echo esc_attr( $text_color ); ?>" /> <label for="cf7htmltemplate-_ody_text_color"><?php esc_html_e( 'Body Text Color(The body text colour of the main body of email)', 'cf7htmltemplate' ); ?></label>
 			</p>
 			<?php
 		}//end method editor_panel_cf7htmltemplate_settings
@@ -257,19 +257,21 @@
 		public function save_contact_form( $contact_form, $args, $context ) {
 			$properties = $contact_form->get_properties();
 
-			$cf7htmltemplate = isset( $_POST['cf7htmltemplate'] ) ? $_POST['cf7htmltemplate'] : array();
+			$store_data = array();
 
-			$cf7htmltemplate['enable']        = isset( $cf7htmltemplate['enable'] ) ? intval( $cf7htmltemplate['enable'] ) : 0;
-			$cf7htmltemplate['use_header']    = isset( $cf7htmltemplate['use_header'] ) ? intval( $cf7htmltemplate['use_header'] ) : 0;
-			$cf7htmltemplate['header_text']   = isset( $cf7htmltemplate['header_text'] ) ? sanitize_text_field( $cf7htmltemplate['header_text'] ) : esc_html__('Contact Form Notification', 'cf7htmltemplate');
-			$cf7htmltemplate['header_image']  = isset( $cf7htmltemplate['header_image'] ) ? esc_url( $cf7htmltemplate['header_image'] ) : '';
-			$cf7htmltemplate['footer_text']   = isset( $cf7htmltemplate['footer_text'] ) ? sanitize_textarea_field( $cf7htmltemplate['footer_text'] ) : '{sitename}';
-			$cf7htmltemplate['base_color']    = isset( $cf7htmltemplate['base_color'] ) ? sanitize_text_field( $cf7htmltemplate['base_color'] ) : '#557da1';
-			$cf7htmltemplate['bg_color']      = isset( $cf7htmltemplate['bg_color'] ) ? sanitize_text_field( $cf7htmltemplate['bg_color'] ) : '#f5f5f5';
-			$cf7htmltemplate['body_bg_color'] = isset( $cf7htmltemplate['body_bg_color'] ) ? sanitize_text_field( $cf7htmltemplate['body_bg_color'] ) : '#fdfdfd';
-			$cf7htmltemplate['text_color']    = isset( $cf7htmltemplate['text_color'] ) ? sanitize_text_field( $cf7htmltemplate['text_color'] ) : '#505050';
+			$post_data = isset( $_POST['cf7htmltemplate'] ) ? $_POST['cf7htmltemplate'] : array();
 
-			$properties['cf7htmltemplate_settings'] = $cf7htmltemplate;
+			$store_data['enable']        = isset( $post_data['enable'] ) ? intval( $post_data['enable'] ) : 0;
+			$store_data['use_header']    = isset( $post_data['use_header'] ) ? intval( $post_data['use_header'] ) : 0;
+			$store_data['header_text']   = isset( $post_data['header_text'] ) ? sanitize_text_field( $post_data['header_text'] ) : esc_html__('Contact Form Notification', 'cf7htmltemplate');
+			$store_data['header_image']  = isset( $post_data['header_image'] ) ? esc_url( $post_data['header_image'] ) : '';
+			$store_data['footer_text']   = isset( $post_data['footer_text'] ) ? sanitize_textarea_field( $post_data['footer_text'] ) : '{sitename}';
+			$store_data['base_color']    = isset( $post_data['base_color'] ) ? sanitize_text_field( $post_data['base_color'] ) : '#557da1';
+			$store_data['bg_color']      = isset( $post_data['bg_color'] ) ? sanitize_text_field( $post_data['bg_color'] ) : '#f5f5f5';
+			$store_data['body_bg_color'] = isset( $post_data['body_bg_color'] ) ? sanitize_text_field( $post_data['body_bg_color'] ) : '#fdfdfd';
+			$store_data['text_color']    = isset( $post_data['text_color'] ) ? sanitize_text_field( $post_data['text_color'] ) : '#505050';
+
+			$properties['cf7htmltemplate_settings'] = $store_data;
 
 			$contact_form->set_properties( $properties );
 
@@ -313,7 +315,7 @@
 					require_once plugin_dir_path( __FILE__ ) . 'includes/emogrifier.php';
 					require_once plugin_dir_path( __FILE__ ) . 'includes/class-cf7htmltemplate-mailtemplate.php';
 
-					$properties['header_text'] = wpcf7_mail_replace_tags($properties['header_text']);
+					$properties['header_text'] = wpcf7_mail_replace_tags(esc_html($properties['header_text']));
 					$properties['footer_text'] = wpcf7_mail_replace_tags($properties['footer_text']);
 
 					$template_engine = new CF7HtmlTemplateMailTemplate( $properties );
