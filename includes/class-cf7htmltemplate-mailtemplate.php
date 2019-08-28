@@ -24,7 +24,7 @@
 			$header_html = ( $use_header ) ? '<tr>
                                             <td align="center" valign="top">
                                                 <!-- Header -->
-                                                <table border="0" cellpadding="0" cellspacing="0" width="600" id="template_header">
+                                                <table border="0" cellpadding="0" cellspacing="0"  id="template_header">
                                                     <tr>
                                                         <td id="header_wrapper">
                                                             <h1 style="color: white;">' . esc_attr($header_text) . '</h1>
@@ -38,8 +38,14 @@
 			$html = '
                     <!DOCTYPE html>
                     <html dir="' . esc_attr($direction) . '">
-                        <head>
-                            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                        <head>                        	
+    						<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />      
+    						<meta charset="utf-8"> <!-- utf-8 works for most cases -->
+						    <meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn\'t be necessary -->
+						    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
+						    <meta name="x-apple-disable-message-reformatting">  <!-- Disable auto-scale in iOS 10 Mail entirely -->
+						    <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no"> <!-- Tell iOS not to automatically link certain text strings. -->
+    						                      
                             <title>' . esc_attr($sitename) . '</title>
                     </head>
                     <body ' . ( ( $direction == 'ltr' ) ? ' leftmargin="0" ' : ' rightmargin="0"  ' ) . '  marginwidth="0" topmargin="0" marginheight="0" offset="0">
@@ -49,12 +55,12 @@
                                 <td align="center" valign="top">
                                     <div id="template_header_image">' . ( ( $headerimage != '' ) ? '<p style="margin-top:0;"><img src="' . esc_url($headerimage) . '" alt="' . esc_attr($sitename) . '" /></p>' : '' ) . '
                                     </div>
-                                    <table border="0" cellpadding="0" cellspacing="0" width="600" id="template_container">
+                                    <table border="0" cellpadding="0" cellspacing="0"  id="template_container">
                                         ' . $header_html . '
                                         <tr>
                                             <td align="center" valign="top">
                                                 <!-- Body -->
-                                                <table border="0" cellpadding="0" cellspacing="0" width="600" id="template_body">
+                                                <table border="0" cellpadding="0" cellspacing="0"  id="template_body">
                                                     <tr>
                                                         <td valign="top" id="body_content">
                                                             <!-- Content -->
@@ -88,7 +94,7 @@
                                         <tr>
                                             <td align="center" valign="top">
                                                 <!-- Footer -->
-                                                <table border="0" cellpadding="10" cellspacing="0" width="600" id="template_footer">
+                                                <table border="0" cellpadding="10" cellspacing="0"  id="template_footer">
                                                     <tr>
                                                         <td valign="top">
                                                             <table border="0" cellpadding="10" cellspacing="0" width="100%">
@@ -298,6 +304,11 @@
                     background-color: ' . $body . ';
                     border: 1px solid ' . $this->hex2rgba( $bg_darker_10, .1 ) . ';
                     border-radius: 3px !important;
+                    width:600px;
+                }
+                
+                #template_body{
+                    width:600px;
                 }
 
                 #template_header {
@@ -309,10 +320,15 @@
                     line-height: 100%;
                     vertical-align: middle;
                     font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+                    width:600px;
                 }
 
                 #template_header h1 {
                     color: ' . $base_text . ';
+                }
+                
+                #template_footer{
+                    width: 600px;
                 }
 
                 #template_footer td {
@@ -427,7 +443,55 @@
                     outline: none;
                     text-decoration: none;
                     text-transform: capitalize;
-                }';
+                }
+                
+                @media only screen and (max-width: 620px) {
+                    #template_container {
+                        width: 98% !important;
+                    }
+                    
+                    #template_body {
+                        width: 98% !important;
+                    }
+                    
+                    #template_header {
+                        width: 98% !important;
+                    }
+                    
+                    #template_footer {
+                        width: 98% !important;
+                    }
+                    
+                     #header_wrapper {
+	                    padding: 20px 10px !important;
+	                    display: block;
+	                }
+                    
+                    h1 {
+	                    
+	                    font-size: 20px  !important;
+	                    font-weight: bold  !important;
+	                    line-height: 120%  !important;
+	                    
+	                }
+	
+	                h2 {
+	                    
+	                    font-size: 18px  !important;
+	                    font-weight: bold  !important;
+	                    line-height: 110%  !important;
+	                   
+	                }
+	
+	                h3 {
+	                    
+	                    font-size: 16px  !important;
+	                    font-weight: bold  !important;
+	                    line-height: 110%  !important;
+	                    
+	                }
+                }
+                ';
 
 			return $html;
 

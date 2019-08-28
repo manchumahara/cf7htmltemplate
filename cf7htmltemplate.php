@@ -188,12 +188,13 @@
 			$enable 	   = isset( $cf7htmltemplate['enable'] ) ? intval( $cf7htmltemplate['enable'] ) : 0;
 			$use_header    = isset( $cf7htmltemplate['use_header'] ) ? intval( $cf7htmltemplate['use_header'] ) : 1;
 			$header_text   = isset( $cf7htmltemplate['header_text'] ) ? sanitize_text_field( $cf7htmltemplate['header_text'] ) : esc_html__('Contact Form Notification', 'cf7htmltemplate');
-			$header_image  = isset( $cf7htmltemplate['header_image'] ) ? esc_url( $cf7htmltemplate['header_image'] ) : '';
+			$header_image  = isset( $cf7htmltemplate['header_image'] ) ? sanitize_text_field( $cf7htmltemplate['header_image'] ) : '';
 			$footer_text   = isset( $cf7htmltemplate['footer_text'] ) ? sanitize_textarea_field( $cf7htmltemplate['footer_text'] ) : '{sitename}';
-			$base_color    = isset( $cf7htmltemplate['base_color'] ) ? sanitize_text_field( $cf7htmltemplate['base_color'] ) : '#557da1';
-			$bg_color      = isset( $cf7htmltemplate['bg_color'] ) ? sanitize_text_field( $cf7htmltemplate['bg_color'] ) : '#f5f5f5';
-			$body_bg_color = isset( $cf7htmltemplate['body_bg_color'] ) ? sanitize_text_field( $cf7htmltemplate['body_bg_color'] ) : '#fdfdfd';
-			$text_color    = isset( $cf7htmltemplate['text_color'] ) ? sanitize_text_field( $cf7htmltemplate['text_color'] ) : '#505050';
+
+			$base_color    = isset( $cf7htmltemplate['base_color'] ) ? sanitize_hex_color( $cf7htmltemplate['base_color'] ) : '#557da1';
+			$bg_color      = isset( $cf7htmltemplate['bg_color'] ) ? sanitize_hex_color( $cf7htmltemplate['bg_color'] ) : '#f5f5f5';
+			$body_bg_color = isset( $cf7htmltemplate['body_bg_color'] ) ? sanitize_hex_color( $cf7htmltemplate['body_bg_color'] ) : '#fdfdfd';
+			$text_color    = isset( $cf7htmltemplate['text_color'] ) ? sanitize_hex_color( $cf7htmltemplate['text_color'] ) : '#505050';
 
 
 			?>
@@ -264,12 +265,13 @@
 			$store_data['enable']        = isset( $post_data['enable'] ) ? intval( $post_data['enable'] ) : 0;
 			$store_data['use_header']    = isset( $post_data['use_header'] ) ? intval( $post_data['use_header'] ) : 0;
 			$store_data['header_text']   = isset( $post_data['header_text'] ) ? sanitize_text_field( $post_data['header_text'] ) : esc_html__('Contact Form Notification', 'cf7htmltemplate');
-			$store_data['header_image']  = isset( $post_data['header_image'] ) ? esc_url( $post_data['header_image'] ) : '';
+			$store_data['header_image']  = isset( $post_data['header_image'] ) ? sanitize_text_field( $post_data['header_image'] ) : '';
 			$store_data['footer_text']   = isset( $post_data['footer_text'] ) ? sanitize_textarea_field( $post_data['footer_text'] ) : '{sitename}';
-			$store_data['base_color']    = isset( $post_data['base_color'] ) ? sanitize_text_field( $post_data['base_color'] ) : '#557da1';
-			$store_data['bg_color']      = isset( $post_data['bg_color'] ) ? sanitize_text_field( $post_data['bg_color'] ) : '#f5f5f5';
-			$store_data['body_bg_color'] = isset( $post_data['body_bg_color'] ) ? sanitize_text_field( $post_data['body_bg_color'] ) : '#fdfdfd';
-			$store_data['text_color']    = isset( $post_data['text_color'] ) ? sanitize_text_field( $post_data['text_color'] ) : '#505050';
+
+			$store_data['base_color']    = isset( $post_data['base_color'] ) ? sanitize_hex_color( $post_data['base_color'] ) : '#557da1';
+			$store_data['bg_color']      = isset( $post_data['bg_color'] ) ? sanitize_hex_color( $post_data['bg_color'] ) : '#f5f5f5';
+			$store_data['body_bg_color'] = isset( $post_data['body_bg_color'] ) ? sanitize_hex_color( $post_data['body_bg_color'] ) : '#fdfdfd';
+			$store_data['text_color']    = isset( $post_data['text_color'] ) ? sanitize_hex_color( $post_data['text_color'] ) : '#505050';
 
 			$properties['cf7htmltemplate_settings'] = $store_data;
 

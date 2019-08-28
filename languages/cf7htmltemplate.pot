@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Html Template for Contact Form 7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-26 12:55+0000\n"
+"POT-Creation-Date: 2019-08-28 06:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -61,53 +61,53 @@ msgstr ""
 msgid "Html Template"
 msgstr ""
 
-#: cf7htmltemplate.php:190 cf7htmltemplate.php:264
+#: cf7htmltemplate.php:190 cf7htmltemplate.php:267
 msgid "Contact Form Notification"
 msgstr ""
 
-#: cf7htmltemplate.php:200
+#: cf7htmltemplate.php:201
 msgid "Html Template Setting"
 msgstr ""
 
-#: cf7htmltemplate.php:202
+#: cf7htmltemplate.php:203
 msgid ""
 "Enable Html Template(Also depends on <strong>Use HTML content type</strong> "
 "on Email Tab)"
 msgstr ""
 
-#: cf7htmltemplate.php:206
+#: cf7htmltemplate.php:207
 msgid "Use a Heading in Email"
 msgstr ""
 
-#: cf7htmltemplate.php:210
+#: cf7htmltemplate.php:211
 msgid "Header Text(Support any form field syntax)"
 msgstr ""
 
-#: cf7htmltemplate.php:214
+#: cf7htmltemplate.php:215
 msgid "Site Logo"
 msgstr ""
 
-#: cf7htmltemplate.php:215
+#: cf7htmltemplate.php:216
 msgid "Choose File"
 msgstr ""
 
-#: cf7htmltemplate.php:218
+#: cf7htmltemplate.php:219
 msgid "Footer Text(Support any form field syntax)"
 msgstr ""
 
-#: cf7htmltemplate.php:240
+#: cf7htmltemplate.php:241
 msgid "Base Color(The base color of the email)"
 msgstr ""
 
-#: cf7htmltemplate.php:243
+#: cf7htmltemplate.php:244
 msgid "Background Colour(The background color of the email)"
 msgstr ""
 
-#: cf7htmltemplate.php:246
+#: cf7htmltemplate.php:247
 msgid "Body Background Color(The background colour of the main body of email)"
 msgstr ""
 
-#: cf7htmltemplate.php:249
+#: cf7htmltemplate.php:250
 msgid "Body Text Color(The body text colour of the main body of email)"
 msgstr ""
 
