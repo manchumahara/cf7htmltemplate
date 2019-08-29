@@ -373,6 +373,8 @@
                     line-height: 150%;
                     text-align: \'' . $right_or_left . '\';
                 }
+                
+                
 
                 .td {
                     color: ' . $text_lighter_20 . ';
@@ -462,7 +464,14 @@
                         width: 98% !important;
                     }
                     
-                     #header_wrapper {
+                    #body_content table td {
+                        padding: 15px !important;
+                    }
+                    #template_footer #credit{
+                        padding: 0 15px 15px 15px;
+                    }
+                    
+                    #header_wrapper {
 	                    padding: 20px 10px !important;
 	                    display: block;
 	                }

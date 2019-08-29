@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Html Template for Contact Form 7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-28 06:37+0000\n"
+"POT-Creation-Date: 2019-08-29 04:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -112,7 +112,7 @@ msgid "Body Text Color(The body text colour of the main body of email)"
 msgstr ""
 
 #. Name of the plugin
-msgid "cf7htmltemplate"
+msgid "Html Template for Contact Form 7"
 msgstr ""
 
 #. Description of the plugin
