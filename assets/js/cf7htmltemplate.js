@@ -2,14 +2,11 @@
 	'use strict';
 
 	$(document).ready(function () {
-		console.log(cf7htmltemplate);
-
-
-		$(".spectrum_color").spectrum({
+		$('.spectrum_color').spectrum({
 			showAlpha: false,
 			showInput: true,
 			showPalette: true,
-			preferredFormat: "hex",
+			preferredFormat: 'hex',
 			cancelText: cf7htmltemplate.spectrum.cancelText,
 			chooseText: cf7htmltemplate.spectrum.chooseText,
 			togglePaletteMoreText: cf7htmltemplate.spectrum.togglePaletteMoreText,
@@ -32,7 +29,7 @@
 				multiple: false,
 				library: {
 					type: [ 'image' ]
-				},
+				}
 			});
 
 			file_frame.on('select', function () {

@@ -15,7 +15,7 @@
 	 * Plugin Name:       Html Template for Contact Form 7
 	 * Plugin URI:        https://codeboxr.com/product/contact-form-7-html-templates/
 	 * Description:       Html template(s) for contact form 7
-	 * Version:           1.0.0
+	 * Version:           1.0.3
 	 * Author:            Codeboxr Team
 	 * Author URI:        https://codeboxr.com
 	 * License:           GPL-2.0+
@@ -33,7 +33,7 @@
 	//Html Template for Contact Form 7
 
 	defined( 'CF7HTMLTEMPLATE_PLUGIN_NAME' ) or define( 'CF7HTMLTEMPLATE_PLUGIN_NAME', 'cf7htmltemplate' );
-	defined( 'CF7HTMLTEMPLATE_PLUGIN_VERSION' ) or define( 'CF7HTMLTEMPLATE_PLUGIN_VERSION', '1.0.0' );
+	defined( 'CF7HTMLTEMPLATE_PLUGIN_VERSION' ) or define( 'CF7HTMLTEMPLATE_PLUGIN_VERSION', '1.0.3' );
 	defined( 'CF7HTMLTEMPLATE_BASE_NAME' ) or define( 'CF7HTMLTEMPLATE_BASE_NAME', plugin_basename( __FILE__ ) );
 	defined( 'CF7HTMLTEMPLATE_ROOT_PATH' ) or define( 'CF7HTMLTEMPLATE_ROOT_PATH', plugin_dir_path( __FILE__ ) );
 	defined( 'CF7HTMLTEMPLATE_ROOT_URL' ) or define( 'CF7HTMLTEMPLATE_ROOT_URL', plugin_dir_url( __FILE__ ) );
@@ -81,9 +81,10 @@
 
 			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
 
-			add_filter( 'wpcf7_contact_form_properties', array( $this, 'contact_form_properties' ), 10, 2 );
+			//add_filter( 'wpcf7_contact_form_properties', array( $this, 'contact_form_properties' ), 10, 2 );
 			add_action( 'wpcf7_editor_panels', array( $this, 'editor_panels' ), 10, 1 );
-			add_action( 'wpcf7_save_contact_form', array( $this, 'save_contact_form' ), 10, 3 );
+			//add_action( 'wpcf7_save_contact_form', array( $this, 'save_contact_form' ), 10, 3 );
+			add_action( 'wpcf7_after_save', array( $this, 'save_contact_form' ), 10, 1 );
 
 			add_filter( 'wpcf7_mail_components', array( $this, 'mail_components_body_do_shortcode' ), 50, 2 );
 
@@ -183,7 +184,11 @@
 		 * @param $post
 		 */
 		public function editor_panel_cf7htmltemplate_settings( $post ) {
-			$cf7htmltemplate = $post->prop( 'cf7htmltemplate_settings' );
+
+
+            $form_id = $post->id();
+
+			$cf7htmltemplate = get_post_meta($form_id, '_cf7htmltemplate_settings', true);
 
 			$enable 	   = isset( $cf7htmltemplate['enable'] ) ? intval( $cf7htmltemplate['enable'] ) : 0;
 			$use_header    = isset( $cf7htmltemplate['use_header'] ) ? intval( $cf7htmltemplate['use_header'] ) : 1;
@@ -200,7 +205,7 @@
 			?>
 			<h2><?php echo esc_html__( 'Html Template Setting', 'cf7htmltemplate' ); ?></h2>
 			<p>
-				<label for="cf7htmltemplate_enable"><input type="checkbox" id="cf7htmltemplate_enable" name="cf7htmltemplate[enable]" value="1"<?php echo intval($enable) ? ' checked="checked"' : ''; ?> /> <?php echo __( 'Enable Html Template(Also depends on <strong>Use HTML content type</strong> on Email Tab)', 'cf7htmltemplate' ); ?>
+				<label for="cf7htmltemplate_enable"><input type="checkbox" id="cf7htmltemplate_enable" name="cf7htmltemplate[enable]" value="1" <?php echo intval($enable) ? ' checked="checked"' : ''; ?> /> <?php echo __( 'Enable Html Template(Also depends on <strong>Use HTML content type</strong> on Email Tab)', 'cf7htmltemplate' ); ?>
 				</label>
 			</p>
 			<p>
@@ -255,31 +260,29 @@
 		/**
 		 * Save fields
 		 */
-		public function save_contact_form( $contact_form, $args, $context ) {
-			$properties = $contact_form->get_properties();
+		public function save_contact_form( $args ) {
 
-			$store_data = array();
+			if (!empty($_POST)){
+			    $form_id =  intval($args->id());
 
-			$post_data = isset( $_POST['cf7htmltemplate'] ) ? $_POST['cf7htmltemplate'] : array();
+				$store_data = array();
 
-			$store_data['enable']        = isset( $post_data['enable'] ) ? intval( $post_data['enable'] ) : 0;
-			$store_data['use_header']    = isset( $post_data['use_header'] ) ? intval( $post_data['use_header'] ) : 0;
-			$store_data['header_text']   = isset( $post_data['header_text'] ) ? sanitize_text_field( $post_data['header_text'] ) : esc_html__('Contact Form Notification', 'cf7htmltemplate');
-			$store_data['header_image']  = isset( $post_data['header_image'] ) ? sanitize_text_field( $post_data['header_image'] ) : '';
-			$store_data['footer_text']   = isset( $post_data['footer_text'] ) ? sanitize_textarea_field( $post_data['footer_text'] ) : '{sitename}';
+				$post_data = isset( $_POST['cf7htmltemplate'] ) ? $_POST['cf7htmltemplate'] : [];
 
-			$store_data['base_color']    = isset( $post_data['base_color'] ) ? sanitize_hex_color( $post_data['base_color'] ) : '#557da1';
-			$store_data['bg_color']      = isset( $post_data['bg_color'] ) ? sanitize_hex_color( $post_data['bg_color'] ) : '#f5f5f5';
-			$store_data['body_bg_color'] = isset( $post_data['body_bg_color'] ) ? sanitize_hex_color( $post_data['body_bg_color'] ) : '#fdfdfd';
-			$store_data['text_color']    = isset( $post_data['text_color'] ) ? sanitize_hex_color( $post_data['text_color'] ) : '#505050';
 
-			$properties['cf7htmltemplate_settings'] = $store_data;
+				$store_data['enable']        = isset( $post_data['enable'] ) ? intval( $post_data['enable'] ) : 0;
+				$store_data['use_header']    = isset( $post_data['use_header'] ) ? intval( $post_data['use_header'] ) : 0;
+				$store_data['header_text']   = isset( $post_data['header_text'] ) ? sanitize_text_field( $post_data['header_text'] ) : esc_html__('Contact Form Notification', 'cf7htmltemplate');
+				$store_data['header_image']  = isset( $post_data['header_image'] ) ? sanitize_text_field( $post_data['header_image'] ) : '';
+				$store_data['footer_text']   = isset( $post_data['footer_text'] ) ? sanitize_textarea_field( $post_data['footer_text'] ) : '{sitename}';
 
-			$contact_form->set_properties( $properties );
+				$store_data['base_color']    = isset( $post_data['base_color'] ) ? sanitize_hex_color( $post_data['base_color'] ) : '#557da1';
+				$store_data['bg_color']      = isset( $post_data['bg_color'] ) ? sanitize_hex_color( $post_data['bg_color'] ) : '#f5f5f5';
+				$store_data['body_bg_color'] = isset( $post_data['body_bg_color'] ) ? sanitize_hex_color( $post_data['body_bg_color'] ) : '#fdfdfd';
+				$store_data['text_color']    = isset( $post_data['text_color'] ) ? sanitize_hex_color( $post_data['text_color'] ) : '#505050';
 
-			if ( 'save' == $context ) {
-				$contact_form->save();
-			}
+                update_post_meta($form_id, '_cf7htmltemplate_settings', $store_data);
+            }
 
 		}//end method save_contact_form
 
@@ -311,8 +314,11 @@
 
 			if ( $use_html ) {
 
-				$properties      = $form->prop( 'cf7htmltemplate_settings' );
+				$properties = get_post_meta($form->id(), '_cf7htmltemplate_settings', true);
+
+				//$properties      = $form->prop( 'cf7htmltemplate_settings' );
 				$enable = isset($properties['enable'])? intval($properties['enable']): 0;
+
 				if($enable){
 					require_once plugin_dir_path( __FILE__ ) . 'includes/emogrifier.php';
 					require_once plugin_dir_path( __FILE__ ) . 'includes/class-cf7htmltemplate-mailtemplate.php';

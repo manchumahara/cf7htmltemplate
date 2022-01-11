@@ -163,40 +163,18 @@
 		}
 
 		public function rgb_from_hex( $hex ) {
-			/*$color = str_replace( '#', '', $color );
-			// Convert shorthand colors to full format, e.g. "FFF" -> "FFFFFF"
+			$color = $hex;
+
+			$color = str_replace( '#', '', $color );
+			// Convert shorthand colors to full format, e.g. "FFF" -> "FFFFFF".
 			$color = preg_replace( '~^(.)(.)(.)$~', '$1$1$2$2$3$3', $color );
 
-			$rgb = array();
-			//            $rgb['R'] = hexdec($color{0} . $color{1});
-			//            $rgb['G'] = hexdec($color{2} . $color{3});
-			//            $rgb['B'] = hexdec($color{4} . $color{5});
+			$rgb      = array();
+			$rgb['R'] = hexdec( $color[0] . $color[1] );
+			$rgb['G'] = hexdec( $color[2] . $color[3] );
+			$rgb['B'] = hexdec( $color[4] . $color[5] );
 
-			return $rgb;*/
-
-			preg_match( "/^#{0,1}([0-9a-f]{1,6})$/i", $hex, $match );
-			if ( ! isset( $match[1] ) ) {
-				return false;
-			}
-
-			if ( strlen( $match[1] ) == 6 ) {
-				list( $r, $g, $b ) = array( $hex[0] . $hex[1], $hex[2] . $hex[3], $hex[4] . $hex[5] );
-			} elseif ( strlen( $match[1] ) == 3 ) {
-				list( $r, $g, $b ) = array( $hex[0] . $hex[0], $hex[1] . $hex[1], $hex[2] . $hex[2] );
-			} else if ( strlen( $match[1] ) == 2 ) {
-				list( $r, $g, $b ) = array( $hex[0] . $hex[1], $hex[0] . $hex[1], $hex[0] . $hex[1] );
-			} else if ( strlen( $match[1] ) == 1 ) {
-				list( $r, $g, $b ) = array( $hex . $hex, $hex . $hex, $hex . $hex );
-			} else {
-				return false;
-			}
-
-			$color      = array();
-			$color['R'] = hexdec( $r );
-			$color['G'] = hexdec( $g );
-			$color['B'] = hexdec( $b );
-
-			return $color;
+			return $rgb;
 		}
 
 		public function hex_darker( $color, $factor = 30 ) {
